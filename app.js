@@ -177,8 +177,9 @@
       //   0 idle  → 1 cursor arrives → 2 click/highlight → 3 card flicks away
       let stage = 0;
       if (stageTop < vh * 0.90) stage = 1;
-      if (stageTop < vh * 0.55) stage = 2;
-      if (stageTop < vh * 0.20) stage = 3;
+      const answerAt = vh * 0.55;
+      if (stageTop < answerAt) stage = 2;
+      if (stageTop < answerAt - 40) stage = 3;
       // Past the section: settle on stage 3 (Q2 visible)
       if (r.bottom < 0) stage = 3;
       if (quizStage.dataset.stage !== String(stage)) {
