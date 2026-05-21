@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Writelingo — Learn English through expression</title>
+<meta name="description" content="AI-powered writing assistant for everyday English. Polish your words. Learn from mistakes. Keep improving." />
+<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=26" />
+</head>
+<body>
+
+<!-- ─────────────────────────── NAV ─────────────────────────── -->
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="#top">
+    <svg class="nav-glyph" viewBox="-5 -5 110 110" width="22" height="22" aria-hidden="true">
+      <g transform="rotate(38 50 50)">
+        <path fill="#1B1916" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"></path>
+        <path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"></path>
+      </g>
+    </svg>
+    <span class="wordmark">Writelingo</span>
+    <span class="nav-badge">early access</span>
+  </a>
+  <a href="#download" class="btn-dl">
+    <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M10 3v11M5 9l5 5 5-5M4 17h12"/>
+    </svg>
+    Download for Mac
+  </a>
+</nav>
+
+<!-- ─────────────────────────── HERO ─────────────────────────── -->
+<section class="hero" id="top">
+  <h1 class="hero-title reveal">
+    Don't study English.<br/><span class="tw-stage">
+      <span class="tw-ghost serif" aria-hidden="true">Practice&nbsp;it.</span>
+      <span class="tw-fill">
+        <span class="typewriter serif accent" id="typewriter" data-words="Use it.|Practice it.|Write it.">Use it.</span><span class="caret" aria-hidden="true"></span>
+      </span>
+    </span>
+  </h1>
+  <p class="hero-sub reveal">
+    Writelingo polishes your English as you write. It also tracks what you keep getting wrong, so you don't just sound better. You actually get better.
+  </p>
+  <div class="hero-cta reveal">
+    <a href="#download" class="btn-primary">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 3v11M5 9l5 5 5-5M4 17h12"/>
+      </svg>
+      Download for Mac
+    </a>
+    <a href="#features" class="btn-ghost">Learn more <span class="arr">↓</span></a>
+  </div>
+
+  <!-- ────────── Hero stage: app mockup + 4 floating mini cards ────────── -->
+  <div class="hero-stage">
+
+    <!-- Floating mini card · BOTTOM-LEFT (Claude) -->
+    <div class="app-card app-card-mini float-bl card-claude">
+      <div class="app-card-tab"><svg viewBox="-12 -12 24 24" width="14" height="14" fill="#D97757" aria-hidden="true">
+        <g>
+          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z"/>
+          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(45)"/>
+          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(90)"/>
+          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(135)"/>
+          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(180)"/>
+          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(225)"/>
+          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(270)"/>
+          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(315)"/>
+        </g>
+      </svg> Claude</div>
+      <div class="claude-input">
+        <div class="msg-stack">
+          <p class="claude-input-text msg-variant msg-draft"><span class="hl">Can you help me to write a follow up email?</span></p>
+          <p class="claude-input-text msg-variant msg-polished">Can you help me write a follow-up email?</p>
+        </div>
+        <div class="claude-input-toolbar">
+          <span class="claude-tb-plus">+</span>
+          <span class="claude-spacer"></span>
+          <span class="claude-model">Opus 4.7 <span class="claude-caret">▾</span></span>
+          <span class="claude-send">
+            <svg viewBox="0 0 16 16" width="9" height="9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg>
+          </span>
+        </div>
+      </div>
+      <button class="mini-pill"><span class="pill-state pill-idle"><svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>Polish</span><span class="pill-state pill-polishing"><span class="pill-nib-wrap"><span class="wl-nib-scribble"><svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true"><g transform="rotate(38 50 50)"><path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/><path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/></g></svg></span><svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true"><path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/></svg></span>Polishing</span><span class="pill-state pill-polished"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/><path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Polished</span></button>
+    </div>
+
+    <!-- Floating mini card · BOTTOM-RIGHT (Notion) -->
+    <div class="app-card app-card-mini float-br">
+      <div class="app-card-tab"><svg viewBox="0 0 100 100" width="13" height="13" aria-hidden="true">
+        <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.917 2.14 3.887 2.723 3.887 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553 -6.413 6.017 -6.8z" fill="#fff"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307zM19.803 88.3V30.94c0 -2.527 0.777 -3.697 3.103 -3.893L86 23.157c2.14 -0.193 3.107 1.167 3.107 3.693v56.967c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -3.88zm59.6 -54.444c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#000"/>
+      </svg> Notion</div>
+      <div class="chat-head">← Project Brief</div>
+      <div class="msg-stack">
+        <p class="doc-text msg-variant msg-draft"><span class="hl">make sure</span> everyone <span class="hl">understand</span> the goal.</p>
+        <p class="doc-text msg-variant msg-polished">ensure everyone understands the goal.</p>
+      </div>
+      <button class="mini-pill"><span class="pill-state pill-idle"><svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>Polish</span><span class="pill-state pill-polishing"><span class="pill-nib-wrap"><span class="wl-nib-scribble"><svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true"><g transform="rotate(38 50 50)"><path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/><path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/></g></svg></span><svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true"><path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/></svg></span>Polishing</span><span class="pill-state pill-polished"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/><path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Polished</span></button>
+    </div>
+
+    <!-- Floating mini card · TOP-LEFT (Feishu) -->
+    <div class="app-card app-card-mini float-tl card-feishu">
+      <div class="app-card-tab"><svg viewBox="0 0 48 48" width="15" height="15" aria-hidden="true">
+        <defs><linearGradient id="fsBrandMini" x1="100%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#00D6B9"/>
+          <stop offset="55%" stop-color="#2BA8FA"/>
+          <stop offset="100%" stop-color="#3370FF"/>
+        </linearGradient></defs>
+        <g fill="url(#fsBrandMini)" fill-rule="evenodd" clip-rule="evenodd">
+          <path d="M41.0716 5.99409L3.31071 16.5187L12.3856 25.8126L20.7998 25.9594L30.4827 16.5187C30.2266 15.9943 30.0985 15.5552 30.0985 15.2013C30.0985 14.4074 30.4104 13.7786 30.8947 13.333C31.7241 12.57 32.7222 12.4558 33.8889 12.9905L41.0716 5.99409Z"/>
+          <path d="M42.1021 6.72842L31.5775 44.4893L22.2836 35.4144L22.1367 27.0002L31.5115 17.4816C32.0195 17.8454 32.5743 18.0105 33.1759 17.9769C34.0784 17.9264 34.6614 17.3813 34.9349 17.0602C35.2083 16.7392 35.5293 16.2051 35.5025 15.4113C35.4847 14.8821 35.3109 14.3941 34.9812 13.9472L42.1021 6.72842Z"/>
+        </g>
+      </svg> Feishu</div>
+      <div class="fs-group-head">
+        <div class="fs-group-avatar"><svg viewBox="0 0 20 20" width="12" height="12" fill="#fff" aria-hidden="true"><circle cx="7" cy="7" r="2.4"/><circle cx="13" cy="7" r="2.4"/><path d="M3 15c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6v.5H3v-.5zm6 0c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6v.5H9v-.5z"/></svg></div>
+        <div class="fs-group-info"><span class="fs-group-name">Marketing</span></div>
+      </div>
+      <div class="fs-input">
+        <div class="msg-stack">
+          <div class="fs-input-text msg-variant msg-draft"><span class="hl">Could you please help me to review this?</span></div>
+          <div class="fs-input-text msg-variant msg-polished">Could you please review this?</div>
+        </div>
+        <div class="fs-input-toolbar">
+          <span class="fs-tb-ico">Aa</span>
+          <span class="fs-tb-ico">☺</span>
+          <span class="fs-tb-ico">@</span>
+          <span class="fs-tb-ico">＋</span>
+          <span class="fs-spacer"></span>
+          <span class="fs-send">
+            <svg viewBox="0 0 16 16" width="11" height="11" fill="#fff" aria-hidden="true"><path d="M2 8l12-6-3.5 14L8 9.5z"/></svg>
+          </span>
+        </div>
+      </div>
+      <button class="mini-pill"><span class="pill-state pill-idle"><svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>Polish</span><span class="pill-state pill-polishing"><span class="pill-nib-wrap"><span class="wl-nib-scribble"><svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true"><g transform="rotate(38 50 50)"><path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/><path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/></g></svg></span><svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true"><path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/></svg></span>Polishing</span><span class="pill-state pill-polished"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/><path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Polished</span></button>
+    </div>
+
+    <!-- Floating mini card · TOP-RIGHT (Chrome / Gmail) -->
+    <div class="app-card app-card-mini float-tr">
+      <div class="app-card-tab"><svg viewBox="0 0 256 256" width="14" height="14" aria-hidden="true">
+        <path fill="#fff" d="M128.003 199.216c39.335 0 71.221-31.888 71.221-71.223S167.338 56.77 128.003 56.77S56.78 88.658 56.78 127.993s31.887 71.223 71.222 71.223"/>
+        <path fill="#229342" d="M35.89 92.997Q27.92 79.192 17.154 64.02a127.98 127.98 0 0 0 110.857 191.981q17.671-24.785 23.996-35.74q12.148-21.042 31.423-60.251v-.015a63.993 63.993 0 0 1-110.857.017Q46.395 111.19 35.89 92.998"/>
+        <path fill="#fbc116" d="M128.008 255.996A127.97 127.97 0 0 0 256 127.997A128 128 0 0 0 238.837 64q-36.372-3.585-53.686-3.585q-19.632 0-57.152 3.585l-.014.01a63.99 63.99 0 0 1 55.444 31.987a63.99 63.99 0 0 1-.001 64.01z"/>
+        <path fill="#1a73e8" d="M128.003 178.677c27.984 0 50.669-22.685 50.669-50.67s-22.685-50.67-50.67-50.67c-27.983 0-50.669 22.686-50.669 50.67s22.686 50.67 50.67 50.67"/>
+        <path fill="#e33b2e" d="M128.003 64.004H238.84a127.973 127.973 0 0 0-221.685.015l55.419 95.99l.015.008a63.993 63.993 0 0 1 55.415-96.014z"/>
+      </svg> Chrome</div>
+      <div class="gmail-head"><span class="g-m">M</span><span class="g-m">M</span> <span class="gmail-label">Gmail</span></div>
+      <div class="msg-stack">
+        <p class="doc-text msg-variant msg-draft"><span class="hl">Please find the update in the attachment.</span></p>
+        <p class="doc-text msg-variant msg-polished">Please find the attached update.</p>
+      </div>
+      <button class="mini-pill"><span class="pill-state pill-idle"><svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>Polish</span><span class="pill-state pill-polishing"><span class="pill-nib-wrap"><span class="wl-nib-scribble"><svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true"><g transform="rotate(38 50 50)"><path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/><path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/></g></svg></span><svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true"><path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/></svg></span>Polishing</span><span class="pill-state pill-polished"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/><path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Polished</span></button>
+    </div>
+
+  <!-- ────────── Main app mockup ────────── -->
+  <div class="app-mockup reveal-lift" aria-hidden="true">
+    <div class="win-chrome">
+      <span class="tl tl-red"></span>
+      <span class="tl tl-yellow"></span>
+      <span class="tl tl-green"></span>
+      <div class="win-title">
+        <svg viewBox="-5 -5 110 110" width="13" height="13"><g transform="rotate(38 50 50)"><path fill="#1B1916" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/><path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/></g></svg>
+        <span>Writelingo</span>
+      </div>
+    </div>
+    <div class="win-body">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="brand-block">
+          <svg viewBox="-5 -5 110 110" width="22" height="22"><g transform="rotate(38 50 50)"><path fill="#1B1916" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/><path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/></g></svg>
+          <div class="brand-stack">
+            <div class="brand-name">Writelingo</div>
+            <div class="brand-ver">v0.8 · early access</div>
+          </div>
+        </div>
+        <nav class="side-nav">
+          <a class="side-item active">
+            <svg class="ico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5L10 3l7 5.5V17a1 1 0 0 1-1 1h-3v-5H7v5H4a1 1 0 0 1-1-1V8.5z"/></svg>
+            <span>Today</span>
+          </a>
+          <a class="side-item">
+            <svg class="ico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10a7 7 0 1 0 2-4.9L3 7"/><path d="M3 3v4h4"/><path d="M10 6v4l2.5 1.5"/></svg>
+            <span>History</span>
+          </a>
+          <a class="side-item">
+            <svg class="ico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4a1 1 0 0 1 1-1h5.5v14H4a1 1 0 0 1-1-1V4z"/><path d="M17 4a1 1 0 0 0-1-1h-5.5v14H16a1 1 0 0 0 1-1V4z"/></svg>
+            <span>Mistake book</span>
+            <span class="badge">6</span>
+          </a>
+          <a class="side-item">
+            <svg class="ico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="11" height="11" rx="1.5" transform="rotate(-6 8.5 11)"/><rect x="6" y="3.5" width="11" height="11" rx="1.5"/></svg>
+            <span>Vocab</span>
+          </a>
+          <a class="side-item">
+            <svg class="ico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17V8M8 17V3M13 17v-6M18 17V11"/></svg>
+            <span>Insights</span>
+          </a>
+        </nav>
+        <div class="heatmap-block">
+          <div class="hm-label">POLISH ACTIVITY</div>
+          <div class="hm-sub">past 8 weeks</div>
+          <div class="heatmap" id="heatmap"></div>
+          <div class="hm-months" id="hm-months"></div>
+        </div>
+      </aside>
+
+      <!-- Main panel -->
+      <main class="panel">
+        <div class="panel-head">
+          <div class="panel-head-text">
+            <h2>Today's writing,<span class="serif"> polished.</span></h2>
+            <p class="panel-sub">You wrote in English 14 times today — here's what we caught.</p>
+          </div>
+          <div class="segctl">
+            <button class="active">All</button>
+            <button>30d</button>
+            <button>7d</button>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">Polishes</div>
+            <div class="stat-val mono">3,134</div>
+            <div class="stat-hint">329 active days</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Errors caught</div>
+            <div class="stat-val mono">5,171</div>
+            <div class="stat-hint">≈ 1.6 per polish</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Longest streak</div>
+            <div class="stat-val accent">33d</div>
+            <div class="stat-hint">current 7d</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Words polished</div>
+            <div class="stat-val mono">6,320+</div>
+            <div class="stat-hint">month to date</div>
+          </div>
+        </div>
+
+        <div class="recent-eyebrow">MOST RECENT</div>
+        <div class="recent-title">2 minutes ago · in Slack</div>
+
+        <div class="diff-outer">
+          <div class="diff-card diff-draft">
+            <span class="diff-tag tag-draft">YOUR DRAFT</span>
+            <p class="diff-text">
+              Hi Maya! <span class="del">I am very interesting to</span> <span class="del">this position</span> and <span class="del">want to discuss about</span> the details with you tomorrow <span class="del">if you are free</span>.
+            </p>
+          </div>
+          <div class="diff-arrow">
+            <svg viewBox="0 0 12 16" width="11" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v12M2 10l4 4 4-4"/></svg>
+          </div>
+          <div class="diff-card diff-wl">
+            <span class="diff-tag tag-wl">
+              <svg viewBox="0 0 20 20" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>
+              WRITELINGO
+            </span>
+            <p class="diff-text">
+              Hi Maya! <span class="add">I'm really interested in</span> <span class="add">this role</span> and <span class="add">would love to discuss</span> the details with you tomorrow <span class="add">if you're free</span>.
+            </p>
+          </div>
+        </div>
+
+        <div class="issue-row">
+          <div class="issue">
+            <div class="issue-head">
+              <span class="dot dot-red"></span>
+              <span class="issue-tag">形容词词尾</span>
+              <span class="issue-count">7×</span>
+            </div>
+            <div class="issue-swap mono"><span class="del-inline">interesting</span> <span class="arr">→</span> <span class="add-inline">interested</span></div>
+          </div>
+          <div class="issue">
+            <div class="issue-head">
+              <span class="dot dot-amber"></span>
+              <span class="issue-tag">搭配</span>
+              <span class="issue-count">3×</span>
+            </div>
+            <div class="issue-swap mono"><span class="del-inline">interested to</span> <span class="arr">→</span> <span class="add-inline">interested in</span></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── POLISH ANYWHERE ─────────────────────────── -->
+<section class="anywhere-sec" id="features">
+  <h2 class="sec-title reveal">Polish anywhere. Learn everywhere.</h2>
+  <p class="sec-sub reveal">One shortcut. Better English across every app you use.</p>
+
+  <div class="app-cards">
+    <div class="app-card reveal-lift">
+      <div class="app-card-tab"><svg viewBox="0 0 122 122" width="13" height="13" aria-hidden="true">
+        <path d="M25.8,77.6c0,7.1-5.8,12.9-12.9,12.9S0,84.7,0,77.6s5.8-12.9,12.9-12.9h12.9V77.6z" fill="#E01E5A"/>
+        <path d="M32.3,77.6c0-7.1,5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v32.3c0,7.1-5.8,12.9-12.9,12.9s-12.9-5.8-12.9-12.9V77.6z" fill="#E01E5A"/>
+        <path d="M45.2,25.8c-7.1,0-12.9-5.8-12.9-12.9S38.1,0,45.2,0s12.9,5.8,12.9,12.9v12.9H45.2z" fill="#36C5F0"/>
+        <path d="M45.2,32.3c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9H12.9C5.8,58.1,0,52.3,0,45.2S5.8,32.3,12.9,32.3H45.2z" fill="#36C5F0"/>
+        <path d="M97,45.2c0-7.1,5.8-12.9,12.9-12.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9H97V45.2z" fill="#2EB67D"/>
+        <path d="M90.5,45.2c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9V12.9C64.7,5.8,70.5,0,77.6,0c7.1,0,12.9,5.8,12.9,12.9V45.2z" fill="#2EB67D"/>
+        <path d="M77.6,97c7.1,0,12.9,5.8,12.9,12.9c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9V97H77.6z" fill="#ECB22E"/>
+        <path d="M77.6,90.5c-7.1,0-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h32.3c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9H77.6z" fill="#ECB22E"/>
+      </svg> Slack</div>
+      <div class="chat-head"># hiring-design</div>
+      <div class="msg">
+        <div class="avatar avatar-pink">M</div>
+        <div class="msg-body">
+          <div class="msg-meta">Maya Chen <span class="time">10:54 AM</span></div>
+          <div class="msg-stack">
+            <p class="msg-variant msg-draft"><span class="hl">I am very interesting to this position and want to discuss about the details tomorrow.</span></p>
+            <p class="msg-variant msg-polished">I'm really interested in this role and would love to discuss the details tomorrow.</p>
+          </div>
+        </div>
+      </div>
+      <button class="mini-pill" aria-label="Polish draft">
+        <span class="pill-state pill-idle">
+          <svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>
+          Polish <span class="kbd">⌥ Space</span>
+        </span>
+        <span class="pill-state pill-polishing">
+          <span class="pill-nib-wrap">
+            <span class="wl-nib-scribble">
+              <svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true">
+                <g transform="rotate(38 50 50)">
+                  <path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/>
+                  <path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/>
+                </g>
+              </svg>
+            </span>
+            <svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true">
+              <path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Polishing
+        </span>
+        <span class="pill-state pill-polished">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/>
+            <path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Polished
+        </span>
+      </button>
+    </div>
+
+    <div class="app-card reveal-lift">
+      <div class="app-card-tab"><svg viewBox="0 0 100 100" width="13" height="13" aria-hidden="true">
+        <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.917 2.14 3.887 2.723 3.887 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553 -6.413 6.017 -6.8z" fill="#fff"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307zM19.803 88.3V30.94c0 -2.527 0.777 -3.697 3.103 -3.893L86 23.157c2.14 -0.193 3.107 1.167 3.107 3.693v56.967c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -3.88zm59.6 -54.444c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#000"/>
+      </svg> Notion</div>
+      <div class="chat-head">← Project Brief</div>
+      <div class="msg-stack">
+        <p class="doc-text msg-variant msg-draft">We need to sync with the team and <span class="hl">make sure</span> everyone <span class="hl">understand</span> the goal.</p>
+        <p class="doc-text msg-variant msg-polished">We need to sync with the team and ensure everyone understands the goal.</p>
+      </div>
+      <button class="mini-pill" aria-label="Polish draft">
+        <span class="pill-state pill-idle">
+          <svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>
+          Polish <span class="kbd">⌥ Space</span>
+        </span>
+        <span class="pill-state pill-polishing">
+          <span class="pill-nib-wrap">
+            <span class="wl-nib-scribble">
+              <svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true">
+                <g transform="rotate(38 50 50)">
+                  <path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/>
+                  <path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/>
+                </g>
+              </svg>
+            </span>
+            <svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true">
+              <path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Polishing
+        </span>
+        <span class="pill-state pill-polished">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/>
+            <path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Polished
+        </span>
+      </button>
+    </div>
+
+    <div class="app-card reveal-lift card-feishu">
+      <div class="app-card-tab"><svg viewBox="0 0 48 48" width="15" height="15" aria-hidden="true">
+        <defs><linearGradient id="fsBrandCard" x1="100%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#00D6B9"/>
+          <stop offset="55%" stop-color="#2BA8FA"/>
+          <stop offset="100%" stop-color="#3370FF"/>
+        </linearGradient></defs>
+        <g fill="url(#fsBrandCard)" fill-rule="evenodd" clip-rule="evenodd">
+          <path d="M41.0716 5.99409L3.31071 16.5187L12.3856 25.8126L20.7998 25.9594L30.4827 16.5187C30.2266 15.9943 30.0985 15.5552 30.0985 15.2013C30.0985 14.4074 30.4104 13.7786 30.8947 13.333C31.7241 12.57 32.7222 12.4558 33.8889 12.9905L41.0716 5.99409Z"/>
+          <path d="M42.1021 6.72842L31.5775 44.4893L22.2836 35.4144L22.1367 27.0002L31.5115 17.4816C32.0195 17.8454 32.5743 18.0105 33.1759 17.9769C34.0784 17.9264 34.6614 17.3813 34.9349 17.0602C35.2083 16.7392 35.5293 16.2051 35.5025 15.4113C35.4847 14.8821 35.3109 14.3941 34.9812 13.9472L42.1021 6.72842Z"/>
+        </g>
+      </svg> Feishu</div>
+      <div class="fs-group-head">
+        <div class="fs-group-avatar">
+          <svg viewBox="0 0 20 20" width="12" height="12" fill="#fff" aria-hidden="true">
+            <circle cx="7" cy="7" r="2.4"/><circle cx="13" cy="7" r="2.4"/>
+            <path d="M3 15c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6v.5H3v-.5zm6 0c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6v.5H9v-.5z"/>
+          </svg>
+        </div>
+        <div class="fs-group-info">
+          <span class="fs-group-name">Marketing Group</span>
+          <span class="fs-group-count">
+            <svg viewBox="0 0 12 12" width="9" height="9" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="1.6"/><circle cx="8.5" cy="5" r="1.4"/><path d="M1 10c0-1.5 1.2-2.4 3-2.4s3 .9 3 2.4H1zm5.5 0c0-1.2 1-2 2.5-2s2.5.8 2.5 2H6.5z"/></svg>
+            12
+          </span>
+        </div>
+      </div>
+      <div class="fs-input">
+        <div class="msg-stack">
+          <div class="fs-input-text msg-variant msg-draft"><span class="hl">Could you please help me to review this document when you have time?</span></div>
+          <div class="fs-input-text msg-variant msg-polished">Could you please review this document when you have time?</div>
+        </div>
+        <div class="fs-input-toolbar">
+          <span class="fs-tb-ico">Aa</span>
+          <span class="fs-tb-ico">☺</span>
+          <span class="fs-tb-ico">@</span>
+          <span class="fs-tb-ico">＋</span>
+          <span class="fs-spacer"></span>
+          <span class="fs-send">
+            <svg viewBox="0 0 16 16" width="11" height="11" fill="#fff" aria-hidden="true"><path d="M2 8l12-6-3.5 14L8 9.5z"/></svg>
+          </span>
+        </div>
+      </div>
+      <button class="mini-pill" aria-label="Polish draft">
+        <span class="pill-state pill-idle">
+          <svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>
+          Polish <span class="kbd">⌥ Space</span>
+        </span>
+        <span class="pill-state pill-polishing">
+          <span class="pill-nib-wrap">
+            <span class="wl-nib-scribble">
+              <svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true">
+                <g transform="rotate(38 50 50)">
+                  <path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/>
+                  <path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/>
+                </g>
+              </svg>
+            </span>
+            <svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true">
+              <path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Polishing
+        </span>
+        <span class="pill-state pill-polished">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/>
+            <path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Polished
+        </span>
+      </button>
+    </div>
+
+    <div class="app-card reveal-lift">
+      <div class="app-card-tab"><svg viewBox="0 0 256 256" width="14" height="14" aria-hidden="true">
+        <path fill="#fff" d="M128.003 199.216c39.335 0 71.221-31.888 71.221-71.223S167.338 56.77 128.003 56.77S56.78 88.658 56.78 127.993s31.887 71.223 71.222 71.223"/>
+        <path fill="#229342" d="M35.89 92.997Q27.92 79.192 17.154 64.02a127.98 127.98 0 0 0 110.857 191.981q17.671-24.785 23.996-35.74q12.148-21.042 31.423-60.251v-.015a63.993 63.993 0 0 1-110.857.017Q46.395 111.19 35.89 92.998"/>
+        <path fill="#fbc116" d="M128.008 255.996A127.97 127.97 0 0 0 256 127.997A128 128 0 0 0 238.837 64q-36.372-3.585-53.686-3.585q-19.632 0-57.152 3.585l-.014.01a63.99 63.99 0 0 1 55.444 31.987a63.99 63.99 0 0 1-.001 64.01z"/>
+        <path fill="#1a73e8" d="M128.003 178.677c27.984 0 50.669-22.685 50.669-50.67s-22.685-50.67-50.67-50.67c-27.983 0-50.669 22.686-50.669 50.67s22.686 50.67 50.67 50.67"/>
+        <path fill="#e33b2e" d="M128.003 64.004H238.84a127.973 127.973 0 0 0-221.685.015l55.419 95.99l.015.008a63.993 63.993 0 0 1 55.415-96.014z"/>
+      </svg> Chrome</div>
+      <div class="gmail-head"><span class="g-m">M</span><span class="g-m">M</span> <span class="gmail-label">Gmail</span></div>
+      <div class="msg-stack">
+        <p class="doc-text msg-variant msg-draft">
+          Hi team,<br/>
+          <span class="hl">Please find the update in the attachment.</span><br/>
+          Let me know if you have any questions.
+        </p>
+        <p class="doc-text msg-variant msg-polished">
+          Hi team,<br/>
+          Please find the attached update.<br/>
+          Let me know if you have any questions.
+        </p>
+      </div>
+      <button class="mini-pill" aria-label="Polish draft">
+        <span class="pill-state pill-idle">
+          <svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>
+          Polish <span class="kbd">⌥ Space</span>
+        </span>
+        <span class="pill-state pill-polishing">
+          <span class="pill-nib-wrap">
+            <span class="wl-nib-scribble">
+              <svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true">
+                <g transform="rotate(38 50 50)">
+                  <path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/>
+                  <path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/>
+                </g>
+              </svg>
+            </span>
+            <svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true">
+              <path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Polishing
+        </span>
+        <span class="pill-state pill-polished">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/>
+            <path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Polished
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── MISTAKE BOOK QUIZ ─────────────────────────── -->
+<section class="quiz-sec" id="quiz">
+  <div class="quiz-text">
+    <h2 class="sec-title reveal">Your mistakes, turned into your lessons.</h2>
+    <p class="sec-sub reveal">Spot a pattern in your writing? Writelingo turns it into a quiz built just for you.</p>
+  </div>
+
+  <div class="quiz-stage" data-stage="0">
+
+    <!-- Card A · prev (left, already answered) -->
+    <div class="quiz-card-wrap" data-slot="prev" aria-hidden="true">
+      <div class="quiz-card">
+        <div class="quiz-head">
+          <span class="quiz-eyebrow">Fill in the blank · 冗余</span>
+          <span class="quiz-progress">Q1 / 12</span>
+        </div>
+        <div class="quiz-prompt">Could you <span class="quiz-blank quiz-blank-done"></span> this document when you have time?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt quiz-opt-correct" disabled><span class="opt-n">1</span>discuss</button>
+          <button class="quiz-opt quiz-opt-muted" disabled><span class="opt-n">2</span>discuss about</button>
+          <button class="quiz-opt quiz-opt-muted" disabled><span class="opt-n">3</span>discussing</button>
+          <button class="quiz-opt quiz-opt-muted" disabled><span class="opt-n">4</span>discussion</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card B · cur (centre, active question) -->
+    <div class="quiz-card-wrap" data-slot="cur">
+      <div class="quiz-card">
+        <div class="quiz-head">
+          <span class="quiz-eyebrow">Fill in the blank · 形容词词尾</span>
+          <span class="quiz-progress">Q2 / 12</span>
+        </div>
+        <div class="quiz-prompt">I'm really <span class="quiz-blank"></span> in this role.</div>
+        <div class="quiz-options">
+          <button class="quiz-opt"><span class="opt-n">1</span>interesting</button>
+          <button class="quiz-opt" data-correct="true"><span class="opt-n">2</span>interested</button>
+          <button class="quiz-opt"><span class="opt-n">3</span>interest</button>
+          <button class="quiz-opt"><span class="opt-n">4</span>interests</button>
+        </div>
+        <!-- Feedback — revealed in stage 2 -->
+        <div class="quiz-feedback">
+          <div class="quiz-feedback-ok">✓ Nice — that's right</div>
+          <p class="quiz-explain">-ed adjectives describe how you feel. -ing adjectives describe what causes the feeling.</p>
+          <div class="quiz-example">
+            <div class="quiz-ex-en">The meeting was <em>interesting</em>. I was really <em>interested</em>.</div>
+            <div class="quiz-ex-zh">-ing 表示引发感受的事物，-ed 表示你本人的感受。</div>
+          </div>
+        </div>
+        <div class="quiz-foot">
+          <button class="quiz-next-btn">Next question <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card C · next (right, upcoming question) -->
+    <div class="quiz-card-wrap" data-slot="next" aria-hidden="true">
+      <div class="quiz-card">
+        <div class="quiz-head">
+          <span class="quiz-eyebrow">Fill in the blank · 介词</span>
+          <span class="quiz-progress">Q3 / 12</span>
+        </div>
+        <div class="quiz-prompt">She's very good <span class="quiz-blank"></span> managing teams.</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" disabled><span class="opt-n">1</span>for</button>
+          <button class="quiz-opt" disabled><span class="opt-n">2</span>at</button>
+          <button class="quiz-opt" disabled><span class="opt-n">3</span>in</button>
+          <button class="quiz-opt" disabled><span class="opt-n">4</span>on</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated mouse cursor -->
+    <div class="quiz-cursor" aria-hidden="true">
+      <svg viewBox="0 0 20 28" width="22" height="30">
+        <path d="M2 1 L 17 14 L 9.5 14.5 L 14 25 L 11 26 L 6.5 15.5 L 2 19 Z" fill="#1B1916" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── FEATURES ─────────────────────────── -->
+<section class="features-sec">
+  <div class="feature reveal">
+    <svg class="f-ico" viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3.5 16.5L12 8"/>
+      <path d="M5.5 14.5L7 16"/>
+      <path d="M14 3 Q14 5.7 16.7 6 Q14 6.3 14 9 Q14 6.3 11.3 6 Q14 5.7 14 3 Z" fill="#B8823A" stroke="none"/>
+    </svg>
+    <div>
+      <h4>Polish smarter</h4>
+      <p>AI-powered suggestions that make your writing clearer and more natural.</p>
+    </div>
+  </div>
+  <div class="feature reveal">
+    <svg class="f-ico" viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M8 4 Q8 8 12 8 Q8 8 8 12 Q8 8 4 8 Q8 8 8 4 Z"/>
+      <path d="M14 12 Q14 14 16 14 Q14 14 14 16 Q14 14 12 14 Q14 14 14 12 Z"/>
+    </svg>
+    <div>
+      <h4>Learn from mistakes</h4>
+      <p>Review your errors and master the topics you struggle with.</p>
+    </div>
+  </div>
+  <div class="feature reveal">
+    <svg class="f-ico" viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 16 V8 M9 16 V5 M14 16 V11"/>
+      <path d="M3 16 H17"/>
+      <circle cx="14" cy="5" r="1.8" fill="#B8823A" stroke="none"/>
+    </svg>
+    <div>
+      <h4>Track your progress</h4>
+      <p>See your improvement over time with insights that motivate.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── BOTTOM CTA ─────────────────────────── -->
+<section class="bottom-cta">
+  <a href="#download" class="btn-primary reveal" id="download">
+    <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M10 3v11M5 9l5 5 5-5M4 17h12"/>
+    </svg>
+    Download for Mac
+  </a>
+</section>
+
+<footer class="footer">
+  <span>© 2026 Writelingo</span>
+  <span class="mono">Drafts stay on this device · Polishing runs locally</span>
+</footer>
+
+<script src="app.js?v=25"></script>
+</body>
+</html>

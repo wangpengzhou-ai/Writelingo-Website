@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 110 110" width="100" height="100">
+  
+  <g transform="rotate(38 50 50)">
+    <path fill="currentColor" fill-rule="evenodd" d="M 40 8 L 60 8 L 62 14 L 64 24 C 62 50, 58 78, 50 90 C 42 78, 38 50, 36 24 L 38 14 L 40 8 Z&#xA;             M 49 24 Q 49 22, 50 22 Q 51 22, 51 24 L 51 82 Q 51 84, 50 84 Q 49 84, 49 82 Z"></path>
+    <path fill="#B8823A" d="M 50 87 Q 50 93.12, 59 96 Q 50 98.88, 50 105 Q 50 98.88, 41 96 Q 50 93.12, 50 87 Z"></path>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+branch="$(git branch --show-current)"
+
+case "$branch" in
+  main|master)
+    if [ "${APPROVED_MERGE:-}" != "1" ]; then
+      cat >&2 <<'MSG'
+Merges into main/master must be approved first.
+
+Use:
+  scripts/merge-approved.sh <branch> --approved-by "<name>"
+MSG
+      exit 1
+    fi
+    ;;
+esac

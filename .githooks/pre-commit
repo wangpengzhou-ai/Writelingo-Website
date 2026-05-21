@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+branch="$(git branch --show-current)"
+
+case "$branch" in
+  main|master)
+    cat >&2 <<'MSG'
+Direct commits to main/master are blocked.
+
+Create a work branch first:
+  scripts/start-branch.sh your-change-name
+MSG
+    exit 1
+    ;;
+esac
