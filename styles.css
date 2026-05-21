@@ -32,6 +32,7 @@
 
   --quiz-card-w: 460px;
   --quiz-card-gap: 28px;
+  --quiz-deal-x: -414px;
 }
 
 * { box-sizing: border-box; }
@@ -1149,6 +1150,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   left: 50%;
   top: 0;
   width: var(--quiz-card-w);
+  transform-origin: top center;
+  will-change: transform, opacity;
   transition:
     transform 0.68s cubic-bezier(0.32, 0.00, 0.22, 1.00),
     opacity   0.52s ease;
@@ -1157,6 +1160,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   transform: translateX(-50%);
   opacity: 1;
   z-index: 3;
+}
+.quiz-card-wrap[data-slot="deal"] {
+  transform: translateX(-50%) translateY(8px) scale(0.97);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 .quiz-card-wrap[data-slot="prev"] {
   transform: translateX(calc(-50% - var(--quiz-card-w) - var(--quiz-card-gap)));
@@ -1419,32 +1428,88 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   color: #fff;
 }
 
-/* Stage 3 — current card exits left; next card slides to centre */
+/* Stage 3 — video-matched deck-deal transition.
+   The answered card stays fully opaque while sliding left, then tucks back
+   under the stack and fades. The next card is already underneath, slightly
+   lower/smaller, and settles upward into the center as it is revealed. */
 .quiz-stage[data-stage="3"] .quiz-cursor { opacity: 0; }
 .quiz-stage[data-stage="3"] [data-slot="cur"] {
-  transform: translateX(calc(-50% - var(--quiz-card-w) - var(--quiz-card-gap) - 120px)) rotate(-6deg);
-  opacity: 0;
-  transition-duration: 0.62s, 0.42s;
+  z-index: 4;
+  pointer-events: none;
+  transition: none;
+  animation: quiz-deal-out 0.70s both;
+}
+.quiz-stage[data-stage="3"] [data-slot="deal"] {
+  z-index: 3;
+  opacity: 1;
+  pointer-events: none;
+  transition: none;
+  animation: quiz-deal-in 0.70s both;
 }
 .quiz-stage[data-stage="3"] [data-slot="next"] {
-  transform: translateX(-50%);
-  opacity: 1;
-  z-index: 3;
+  transform: translateX(calc(-50% + var(--quiz-card-w) + var(--quiz-card-gap)));
+  opacity: 0.52;
+  z-index: 1;
 }
 .quiz-stage[data-stage="3"] [data-slot="prev"] {
-  transform: translateX(calc(-50% - var(--quiz-card-w) * 2 - var(--quiz-card-gap) * 2 - 120px));
-  opacity: 0;
+  transform: translateX(calc(-50% - var(--quiz-card-w) - var(--quiz-card-gap)));
+  opacity: 0.52;
+  z-index: 1;
+}
+
+@keyframes quiz-deal-out {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+    z-index: 4;
+  }
+  43% {
+    transform: translateX(-50%) translateX(var(--quiz-deal-x)) translateY(0) scale(0.96) rotate(-3deg);
+    opacity: 1;
+    z-index: 4;
+  }
+  44% {
+    transform: translateX(-50%) translateX(var(--quiz-deal-x)) translateY(0) scale(0.96) rotate(-3deg);
+    opacity: 1;
+    z-index: 2;
+  }
+  100% {
+    transform: translateX(-50%) translateY(10px) scale(0.95) rotate(0deg);
+    opacity: 0;
+    z-index: 2;
+  }
+}
+
+@keyframes quiz-deal-in {
+  0% {
+    transform: translateX(-50%) translateY(8px) scale(0.97) rotate(0deg);
+    opacity: 1;
+  }
+  43% {
+    transform: translateX(-50%) translateY(4px) scale(0.98) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .quiz-card-wrap, .quiz-cursor, .quiz-opt,
-  .quiz-feedback, .quiz-foot, .quiz-blank { transition: none !important; }
+  .quiz-feedback, .quiz-foot, .quiz-blank {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* ── Mobile ── */
 @media (max-width: 540px) {
-  :root { --quiz-card-w: calc(100vw - 48px); }
+  :root {
+    --quiz-card-w: calc(100vw - 48px);
+    --quiz-deal-x: -78vw;
+  }
   .quiz-stage { height: 360px; }
   .quiz-prompt { font-size: 17px; }
   .quiz-stage[data-stage="1"] .quiz-cursor,
