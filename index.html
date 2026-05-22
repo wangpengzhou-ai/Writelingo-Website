@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=28" />
+<link rel="stylesheet" href="styles.css?v=45" />
 </head>
 <body>
 
@@ -31,7 +31,7 @@
     <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M10 3v11M5 9l5 5 5-5M4 17h12"/>
     </svg>
-    Download for Mac
+    <span>Download for Mac</span>
   </a>
 </nav>
 
@@ -60,21 +60,11 @@
 
   <!-- ────────── Hero stage: app mockup + 4 floating mini cards ────────── -->
   <div class="hero-stage">
+  <div class="hero-stage-inner">
 
     <!-- Floating mini card · BOTTOM-LEFT (Claude) -->
     <div class="app-card app-card-mini float-bl card-claude">
-      <div class="app-card-tab"><svg viewBox="-12 -12 24 24" width="14" height="14" fill="#D97757" aria-hidden="true">
-        <g>
-          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z"/>
-          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(45)"/>
-          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(90)"/>
-          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(135)"/>
-          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(180)"/>
-          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(225)"/>
-          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(270)"/>
-          <path d="M 0 -10 Q 1 -3, 0 0 Q -1 -3, 0 -10 Z" transform="rotate(315)"/>
-        </g>
-      </svg> Claude</div>
+      <div class="app-card-tab brand-tab"><img class="brand-logo brand-logo-claude" src="assets/brand/claude-icon.svg" alt="" aria-hidden="true" /> Claude</div>
       <div class="claude-input">
         <div class="msg-stack">
           <p class="claude-input-text msg-variant msg-draft"><span class="hl">Can you help me to write a follow up email?</span></p>
@@ -106,23 +96,9 @@
       <button class="mini-pill"><span class="pill-state pill-idle"><svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>Polish</span><span class="pill-state pill-polishing"><span class="pill-nib-wrap"><span class="wl-nib-scribble"><svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true"><g transform="rotate(38 50 50)"><path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/><path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/></g></svg></span><svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true"><path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/></svg></span>Polishing</span><span class="pill-state pill-polished"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/><path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Polished</span></button>
     </div>
 
-    <!-- Floating mini card · TOP-LEFT (Feishu) -->
+    <!-- Floating mini card · TOP-LEFT (Lark) -->
     <div class="app-card app-card-mini float-tl card-feishu">
-      <div class="app-card-tab"><svg viewBox="0 0 48 48" width="15" height="15" aria-hidden="true">
-        <defs><linearGradient id="fsBrandMini" x1="100%" y1="100%" x2="0%" y2="0%">
-          <stop offset="0%" stop-color="#00D6B9"/>
-          <stop offset="55%" stop-color="#2BA8FA"/>
-          <stop offset="100%" stop-color="#3370FF"/>
-        </linearGradient></defs>
-        <g fill="url(#fsBrandMini)" fill-rule="evenodd" clip-rule="evenodd">
-          <path d="M41.0716 5.99409L3.31071 16.5187L12.3856 25.8126L20.7998 25.9594L30.4827 16.5187C30.2266 15.9943 30.0985 15.5552 30.0985 15.2013C30.0985 14.4074 30.4104 13.7786 30.8947 13.333C31.7241 12.57 32.7222 12.4558 33.8889 12.9905L41.0716 5.99409Z"/>
-          <path d="M42.1021 6.72842L31.5775 44.4893L22.2836 35.4144L22.1367 27.0002L31.5115 17.4816C32.0195 17.8454 32.5743 18.0105 33.1759 17.9769C34.0784 17.9264 34.6614 17.3813 34.9349 17.0602C35.2083 16.7392 35.5293 16.2051 35.5025 15.4113C35.4847 14.8821 35.3109 14.3941 34.9812 13.9472L42.1021 6.72842Z"/>
-        </g>
-      </svg> Feishu</div>
-      <div class="fs-group-head">
-        <div class="fs-group-avatar"><svg viewBox="0 0 20 20" width="12" height="12" fill="#fff" aria-hidden="true"><circle cx="7" cy="7" r="2.4"/><circle cx="13" cy="7" r="2.4"/><path d="M3 15c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6v.5H3v-.5zm6 0c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6v.5H9v-.5z"/></svg></div>
-        <div class="fs-group-info"><span class="fs-group-name">Marketing</span></div>
-      </div>
+      <div class="app-card-tab brand-tab"><img class="brand-logo brand-logo-lark" src="assets/brand/lark-icon.svg" alt="" aria-hidden="true" /> Lark</div>
       <div class="fs-input">
         <div class="msg-stack">
           <div class="fs-input-text msg-variant msg-draft"><span class="hl">Could you please help me to review this?</span></div>
@@ -142,19 +118,29 @@
       <button class="mini-pill"><span class="pill-state pill-idle"><svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>Polish</span><span class="pill-state pill-polishing"><span class="pill-nib-wrap"><span class="wl-nib-scribble"><svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true"><g transform="rotate(38 50 50)"><path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/><path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/></g></svg></span><svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true"><path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/></svg></span>Polishing</span><span class="pill-state pill-polished"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/><path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Polished</span></button>
     </div>
 
-    <!-- Floating mini card · TOP-RIGHT (Chrome / Gmail) -->
-    <div class="app-card app-card-mini float-tr">
-      <div class="app-card-tab"><svg viewBox="0 0 256 256" width="14" height="14" aria-hidden="true">
-        <path fill="#fff" d="M128.003 199.216c39.335 0 71.221-31.888 71.221-71.223S167.338 56.77 128.003 56.77S56.78 88.658 56.78 127.993s31.887 71.223 71.222 71.223"/>
-        <path fill="#229342" d="M35.89 92.997Q27.92 79.192 17.154 64.02a127.98 127.98 0 0 0 110.857 191.981q17.671-24.785 23.996-35.74q12.148-21.042 31.423-60.251v-.015a63.993 63.993 0 0 1-110.857.017Q46.395 111.19 35.89 92.998"/>
-        <path fill="#fbc116" d="M128.008 255.996A127.97 127.97 0 0 0 256 127.997A128 128 0 0 0 238.837 64q-36.372-3.585-53.686-3.585q-19.632 0-57.152 3.585l-.014.01a63.99 63.99 0 0 1 55.444 31.987a63.99 63.99 0 0 1-.001 64.01z"/>
-        <path fill="#1a73e8" d="M128.003 178.677c27.984 0 50.669-22.685 50.669-50.67s-22.685-50.67-50.67-50.67c-27.983 0-50.669 22.686-50.669 50.67s22.686 50.67 50.67 50.67"/>
-        <path fill="#e33b2e" d="M128.003 64.004H238.84a127.973 127.973 0 0 0-221.685.015l55.419 95.99l.015.008a63.993 63.993 0 0 1 55.415-96.014z"/>
-      </svg> Chrome</div>
-      <div class="gmail-head"><span class="g-m">M</span><span class="g-m">M</span> <span class="gmail-label">Gmail</span></div>
-      <div class="msg-stack">
-        <p class="doc-text msg-variant msg-draft"><span class="hl">Please find the update in the attachment.</span></p>
-        <p class="doc-text msg-variant msg-polished">Please find the attached update.</p>
+    <!-- Floating mini card · TOP-RIGHT (Codex) -->
+    <div class="app-card app-card-mini float-tr card-codex">
+      <div class="app-card-tab">
+        <img class="brand-logo brand-logo-codex" src="assets/brand/codex-color.svg" alt="" aria-hidden="true" />
+        Codex
+      </div>
+      <div class="codex-composer">
+        <div class="msg-stack">
+          <p class="codex-placeholder msg-variant msg-draft"><span class="hl">Can you help me to fix this React bug?</span></p>
+          <p class="codex-placeholder msg-variant msg-polished">Can you help me fix this React bug?</p>
+        </div>
+        <div class="codex-toolbar">
+          <span class="codex-plus">+</span>
+          <span class="codex-review">Auto Review</span>
+          <span class="codex-spacer"></span>
+          <span class="codex-model">5.5 <span class="codex-caret">⌄</span></span>
+          <span class="codex-mic">
+            <svg viewBox="0 0 16 16" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 2.5v6"/><rect x="5.5" y="1.7" width="5" height="8" rx="2.5"/><path d="M3.8 7.4a4.2 4.2 0 0 0 8.4 0M8 11.8v2"/></svg>
+          </span>
+          <span class="codex-send">
+            <svg viewBox="0 0 16 16" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg>
+          </span>
+        </div>
       </div>
       <button class="mini-pill"><span class="pill-state pill-idle"><svg viewBox="0 0 20 20" fill="none" stroke="#1B1916" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 16.5L12 8"/><path d="M5.5 14.5L7 16"/></svg>Polish</span><span class="pill-state pill-polishing"><span class="pill-nib-wrap"><span class="wl-nib-scribble"><svg width="13" height="13" viewBox="-5 -5 110 110" aria-hidden="true"><g transform="rotate(38 50 50)"><path fill="#B8823A" d="M 38 8 L 62 8 L 64 14 L 66 24 C 64 50, 60 78, 50 90 C 40 78, 36 50, 34 24 L 36 14 L 38 8 Z"/><path fill="#B8823A" d="M 50 86 Q 50 92.8, 60 96 Q 50 99.2, 50 106 Q 50 99.2, 40 96 Q 50 92.8, 50 86 Z"/></g></svg></span><svg class="pill-wave" width="15" height="4" viewBox="0 0 15 4" fill="none" aria-hidden="true"><path class="wl-wave-draw" d="M 1 2 Q 3 0.4, 5 2 T 9 2 Q 11 0.4, 13 2 L 14 2" stroke="#B8823A" stroke-width="1.2" stroke-linecap="round"/></svg></span>Polishing</span><span class="pill-state pill-polished"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#4C7A4E" opacity="0.16"/><path class="wl-check-draw" d="M5.5 10.2 L 8.8 13.2 L 14.5 7.2" stroke="#4C7A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Polished</span></button>
     </div>
@@ -294,6 +280,7 @@
     </div>
   </div>
   </div>
+  </div>
 </section>
 
 <!-- ─────────────────────────── POLISH ANYWHERE ─────────────────────────── -->
@@ -355,15 +342,27 @@
       </button>
     </div>
 
-    <div class="app-card reveal-lift">
-      <div class="app-card-tab"><svg viewBox="0 0 100 100" width="13" height="13" aria-hidden="true">
-        <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.917 2.14 3.887 2.723 3.887 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553 -6.413 6.017 -6.8z" fill="#fff"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307zM19.803 88.3V30.94c0 -2.527 0.777 -3.697 3.103 -3.893L86 23.157c2.14 -0.193 3.107 1.167 3.107 3.693v56.967c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -3.88zm59.6 -54.444c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#000"/>
-      </svg> Notion</div>
-      <div class="chat-head">← Project Brief</div>
-      <div class="msg-stack">
-        <p class="doc-text msg-variant msg-draft">We need to sync with the team and <span class="hl">make sure</span> everyone <span class="hl">understand</span> the goal.</p>
-        <p class="doc-text msg-variant msg-polished">We need to sync with the team and ensure everyone understands the goal.</p>
+    <div class="app-card reveal-lift card-arc">
+      <div class="app-card-tab brand-tab">
+        <img class="brand-logo brand-logo-arc" src="assets/brand/arc-logo.svg" alt="" aria-hidden="true" />
+        Arc
+      </div>
+      <div class="arc-panel">
+        <div class="arc-url-row">
+          <span class="arc-favicon">
+            <svg viewBox="0 0 20 20" width="13" height="13" aria-hidden="true">
+              <path d="M10 2.2c3 0 5.6 1.7 6.9 4.2-1.2-.5-2.5-.7-3.9-.4-1.7-1.4-4.2-1.4-5.9 0-1.3-.3-2.7-.1-3.9.4A7.72 7.72 0 0 1 10 2.2Zm-7.1 6c1.9-1.6 4.8-1.4 6.4.5l.7.8-.7.8a4.7 4.7 0 0 1-6.4.5 7.9 7.9 0 0 1 0-2.6Zm14.2 0a7.9 7.9 0 0 1 0 2.6 4.7 4.7 0 0 1-6.4-.5L10 9.5l.7-.8c1.6-1.9 4.5-2.1 6.4-.5ZM10 11.1l.7.8c1.6 1.9 1.5 4.7-.2 6.4H9.5c-1.7-1.7-1.8-4.5-.2-6.4l.7-.8Z" fill="#1B1916"/>
+            </svg>
+          </span>
+          <span class="arc-url-text">chatgpt.com/c/abstract-input</span>
+          <span class="arc-info">i</span>
+        </div>
+        <div class="arc-command msg-stack">
+          <div class="arc-command-text msg-variant msg-draft"><span class="hl">Can you help me to rewrite this page title?</span></div>
+          <div class="arc-command-text msg-variant msg-polished">Can you help me rewrite this page title?</div>
+        </div>
+        <div class="arc-menu-row">OKR</div>
+        <div class="arc-menu-row">Unsaved query</div>
       </div>
       <button class="mini-pill" aria-label="Polish draft">
         <span class="pill-state pill-idle">
@@ -396,46 +395,38 @@
       </button>
     </div>
 
-    <div class="app-card reveal-lift card-feishu">
-      <div class="app-card-tab"><svg viewBox="0 0 48 48" width="15" height="15" aria-hidden="true">
-        <defs><linearGradient id="fsBrandCard" x1="100%" y1="100%" x2="0%" y2="0%">
-          <stop offset="0%" stop-color="#00D6B9"/>
-          <stop offset="55%" stop-color="#2BA8FA"/>
-          <stop offset="100%" stop-color="#3370FF"/>
-        </linearGradient></defs>
-        <g fill="url(#fsBrandCard)" fill-rule="evenodd" clip-rule="evenodd">
-          <path d="M41.0716 5.99409L3.31071 16.5187L12.3856 25.8126L20.7998 25.9594L30.4827 16.5187C30.2266 15.9943 30.0985 15.5552 30.0985 15.2013C30.0985 14.4074 30.4104 13.7786 30.8947 13.333C31.7241 12.57 32.7222 12.4558 33.8889 12.9905L41.0716 5.99409Z"/>
-          <path d="M42.1021 6.72842L31.5775 44.4893L22.2836 35.4144L22.1367 27.0002L31.5115 17.4816C32.0195 17.8454 32.5743 18.0105 33.1759 17.9769C34.0784 17.9264 34.6614 17.3813 34.9349 17.0602C35.2083 16.7392 35.5293 16.2051 35.5025 15.4113C35.4847 14.8821 35.3109 14.3941 34.9812 13.9472L42.1021 6.72842Z"/>
-        </g>
-      </svg> Feishu</div>
-      <div class="fs-group-head">
-        <div class="fs-group-avatar">
-          <svg viewBox="0 0 20 20" width="12" height="12" fill="#fff" aria-hidden="true">
-            <circle cx="7" cy="7" r="2.4"/><circle cx="13" cy="7" r="2.4"/>
-            <path d="M3 15c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6v.5H3v-.5zm6 0c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6v.5H9v-.5z"/>
-          </svg>
-        </div>
-        <div class="fs-group-info">
-          <span class="fs-group-name">Marketing Group</span>
-          <span class="fs-group-count">
-            <svg viewBox="0 0 12 12" width="9" height="9" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="1.6"/><circle cx="8.5" cy="5" r="1.4"/><path d="M1 10c0-1.5 1.2-2.4 3-2.4s3 .9 3 2.4H1zm5.5 0c0-1.2 1-2 2.5-2s2.5.8 2.5 2H6.5z"/></svg>
-            12
-          </span>
-        </div>
+    <div class="app-card reveal-lift card-wechat">
+      <div class="app-card-tab brand-tab">
+        <img class="brand-logo brand-logo-wechat" src="assets/brand/wechat.svg" alt="" aria-hidden="true" />
+        WeChat
       </div>
-      <div class="fs-input">
+      <div class="wechat-composer">
         <div class="msg-stack">
-          <div class="fs-input-text msg-variant msg-draft"><span class="hl">Could you please help me to review this document when you have time?</span></div>
-          <div class="fs-input-text msg-variant msg-polished">Could you please review this document when you have time?</div>
+          <div class="wechat-input-text msg-variant msg-draft"><span class="hl">Could you please help me to review this document when you have time?</span></div>
+          <div class="wechat-input-text msg-variant msg-polished">Could you please review this document when you have time?</div>
         </div>
-        <div class="fs-input-toolbar">
-          <span class="fs-tb-ico">Aa</span>
-          <span class="fs-tb-ico">☺</span>
-          <span class="fs-tb-ico">@</span>
-          <span class="fs-tb-ico">＋</span>
-          <span class="fs-spacer"></span>
-          <span class="fs-send">
-            <svg viewBox="0 0 16 16" width="11" height="11" fill="#fff" aria-hidden="true"><path d="M2 8l12-6-3.5 14L8 9.5z"/></svg>
+        <div class="wechat-toolbar">
+          <span class="wechat-tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><path d="M8.5 14.2c1.9 1.8 5.1 1.8 7 0"/></svg>
+          </span>
+          <span class="wechat-tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.7 7.1v9.8L12 21l7.3-4.1V7.1L12 3Z"/><path d="M4.9 7.2 12 11.2l7.1-4M12 11.3V21"/></svg>
+          </span>
+          <span class="wechat-tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7h6l1.7 2h9.3v9.5h-17V7Z"/><path d="M3.5 9h17"/></svg>
+          </span>
+          <span class="wechat-tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 5 16 14M20 5 4 19"/><circle cx="6" cy="7" r="2.2"/><circle cx="6" cy="17" r="2.2"/></svg>
+          </span>
+          <span class="wechat-tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.2v7.6a3.5 3.5 0 0 1-7 0V4.2a3.5 3.5 0 0 1 7 0Z" transform="translate(3.5 0)"/><path d="M7 11.8c0 3 2.2 5.4 5 5.4s5-2.4 5-5.4M12 17.2V21"/></svg>
+          </span>
+          <span class="wechat-spacer"></span>
+          <span class="wechat-tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 4.5 7c-.8.8-.8 2 0 2.8l2.3 2.3c.8.8 2 .8 2.8 0l1.2-1.2 2.3 2.3-1.2 1.2c-.8.8-.8 2 0 2.8l2.3 2.3c.8.8 2 .8 2.8 0l2.5-2.5"/></svg>
+          </span>
+          <span class="wechat-tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h11v9H4z"/><path d="m15 10.2 5-2.5v8.6l-5-2.5z"/></svg>
           </span>
         </div>
       </div>
@@ -547,6 +538,14 @@
           <button class="quiz-opt quiz-opt-muted" disabled><span class="opt-n">3</span>discussing</button>
           <button class="quiz-opt quiz-opt-muted" disabled><span class="opt-n">4</span>discussion</button>
         </div>
+        <div class="quiz-feedback quiz-feedback-static">
+          <div class="quiz-feedback-ok">✓ Nice — that's right</div>
+          <p class="quiz-explain">Discuss is transitive here, so it takes a direct object without about.</p>
+          <div class="quiz-example">
+            <div class="quiz-ex-en">Could you <em>discuss</em> this document with me?</div>
+            <div class="quiz-ex-zh">discuss 后直接接讨论的内容，不加 about。</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -588,10 +587,18 @@
         </div>
         <div class="quiz-prompt">Let's schedule <span class="quiz-blank"></span> quick sync after lunch.</div>
         <div class="quiz-options">
-          <button class="quiz-opt" disabled><span class="opt-n">1</span>a quick sync</button>
+          <button class="quiz-opt" data-correct="true" disabled><span class="opt-n">1</span>a quick sync</button>
           <button class="quiz-opt" disabled><span class="opt-n">2</span>quick sync</button>
           <button class="quiz-opt" disabled><span class="opt-n">3</span>the quick sync</button>
           <button class="quiz-opt" disabled><span class="opt-n">4</span>an quick sync</button>
+        </div>
+        <div class="quiz-feedback">
+          <div class="quiz-feedback-ok">✓ Nice — that's right</div>
+          <p class="quiz-explain">Use a before quick sync because it names one countable meeting.</p>
+          <div class="quiz-example">
+            <div class="quiz-ex-en">Let's schedule <em>a quick sync</em> after lunch.</div>
+            <div class="quiz-ex-zh">sync 是可数名词，这里表示“一次简短同步”。</div>
+          </div>
         </div>
       </div>
     </div>
@@ -603,12 +610,20 @@
           <span class="quiz-eyebrow">Fill in the blank · 介词</span>
           <span class="quiz-progress">Q3 / 12</span>
         </div>
-        <div class="quiz-prompt">She's very good <span class="quiz-blank"></span> managing teams.</div>
+        <div class="quiz-prompt">She's very good <span class="quiz-blank quiz-blank-wrong"></span> managing teams.</div>
         <div class="quiz-options">
-          <button class="quiz-opt" disabled><span class="opt-n">1</span>for</button>
-          <button class="quiz-opt" disabled><span class="opt-n">2</span>at</button>
-          <button class="quiz-opt" disabled><span class="opt-n">3</span>in</button>
-          <button class="quiz-opt" disabled><span class="opt-n">4</span>on</button>
+          <button class="quiz-opt quiz-opt-muted" disabled><span class="opt-n">1</span>for</button>
+          <button class="quiz-opt quiz-opt-correct" disabled><span class="opt-n">2</span>at</button>
+          <button class="quiz-opt quiz-opt-wrong" disabled><span class="opt-n">3</span>in</button>
+          <button class="quiz-opt quiz-opt-muted" disabled><span class="opt-n">4</span>on</button>
+        </div>
+        <div class="quiz-feedback quiz-feedback-static">
+          <div class="quiz-feedback-bad">✕ Not quite</div>
+          <p class="quiz-explain">Use good at for skills or abilities. Good in usually points to a field or situation.</p>
+          <div class="quiz-example">
+            <div class="quiz-ex-en">She's very good <em>at</em> managing teams.</div>
+            <div class="quiz-ex-zh">表示“擅长做某事”时用 good at。</div>
+          </div>
         </div>
       </div>
     </div>
@@ -673,6 +688,6 @@
   <span class="mono">Drafts stay on this device · Polishing runs locally</span>
 </footer>
 
-<script src="app.js?v=25"></script>
+<script src="app.js?v=42"></script>
 </body>
 </html>

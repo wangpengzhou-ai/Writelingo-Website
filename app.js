@@ -4,12 +4,14 @@
 (() => {
   // ── Nav shadow on scroll ─────────────────────────────
   const nav = document.getElementById('nav');
+  let navScrolled = false;
   const onScroll = () => {
-    if (window.scrollY > 12) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
+    const next = window.scrollY > 12;
+    if (next === navScrolled) return;
+    navScrolled = next;
+    nav.classList.toggle('scrolled', navScrolled);
   };
   onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
 
   // ── Reveal on scroll (Intersection Observer) ─────────
   const io = new IntersectionObserver(
@@ -46,6 +48,61 @@
       if (r.top < vh * 0.92 && r.bottom > 0) el.classList.add('in');
     });
   });
+
+  // ── Hero stage: keep the desktop composition, scaled down when needed ─
+  const heroStage = document.querySelector('.hero-stage');
+  const heroStageInner = document.querySelector('.hero-stage-inner');
+  const updateHeroStageScale = () => {
+    if (!heroStage || !heroStageInner) return;
+
+    const layoutWidth = 1040;
+    const available = Math.max(280, window.innerWidth - 28);
+    const layoutHeight = heroStageInner.offsetHeight || 620;
+    const stageTop = heroStage.getBoundingClientRect().top;
+    const availableHeight = Math.max(170, window.innerHeight - stageTop - 18);
+    const widthScale = available / layoutWidth;
+    const heightScale = availableHeight / layoutHeight;
+    let scale;
+    if (window.innerWidth >= 1100) {
+      scale = 1;
+    } else {
+      const maxByWidth = Math.min(1, widthScale);
+      const comfortMin =
+        window.innerWidth >= 900 ? 0.68 :
+        window.innerWidth >= 640 ? 0.56 :
+        0.22;
+      scale = Math.min(maxByWidth, Math.max(heightScale, comfortMin));
+    }
+
+    heroStage.classList.toggle('is-scaled', scale < 0.995);
+
+    heroStage.style.setProperty('--hero-stage-layout-width', `${layoutWidth}px`);
+    heroStage.style.setProperty('--hero-stage-scale', scale.toFixed(4));
+    heroStage.style.setProperty('--hero-stage-scaled-height', `${Math.ceil(layoutHeight * scale)}px`);
+
+    // The floating cards are absolutely positioned, so offsetHeight can miss
+    // their visual bottom. Refine once from real post-transform bounds.
+    if (scale < 0.995 && window.innerWidth < 640) {
+      void heroStage.offsetHeight;
+      const visibleBottom = window.innerHeight - 18;
+      const bounds = [
+        heroStage.querySelector('.app-mockup'),
+        ...heroStage.querySelectorAll('.app-card-mini'),
+      ].filter(Boolean).map((el) => el.getBoundingClientRect());
+      const maxBottom = Math.max(...bounds.map((r) => r.bottom));
+      if (maxBottom > visibleBottom) {
+        const visualSpan = maxBottom - stageTop;
+        const fit = scale * ((visibleBottom - stageTop) / visualSpan);
+        scale = Math.max(0.22, Math.min(scale, fit));
+        heroStage.style.setProperty('--hero-stage-scale', scale.toFixed(4));
+        heroStage.style.setProperty('--hero-stage-scaled-height', `${Math.ceil(layoutHeight * scale)}px`);
+      }
+    }
+  };
+  updateHeroStageScale();
+  requestAnimationFrame(updateHeroStageScale);
+  setTimeout(updateHeroStageScale, 180);
+  setTimeout(updateHeroStageScale, 520);
 
   // ── Hero typewriter cycle ───────────────────────────────────
   // Cycles through "Use it." → "Practice it." → "Write it." → ...
@@ -113,24 +170,27 @@
   });
 
   const STAGGER_VH = 0.06; // each subsequent card lags by 6% of viewport
+  const MINI_ORDER = ['float-tl', 'float-tr', 'float-bl', 'float-br'];
+  const cardMeta = cards.map((card) => {
+    const siblings = [...card.parentElement.children]
+      .filter((c) => c.classList && c.classList.contains('app-card'));
+    const orderIdx = MINI_ORDER.findIndex((cls) => card.classList.contains(cls));
+    return {
+      card,
+      idx: siblings.indexOf(card),
+      isMini: card.classList.contains('app-card-mini'),
+      orderIdx: orderIdx === -1 ? 0 : orderIdx,
+    };
+  });
 
   const updateCardStates = () => {
     if (!cards.length) return;
     const vh = window.innerHeight;
-    cards.forEach((card) => {
-      const siblings = [...card.parentElement.children]
-        .filter((c) => c.classList && c.classList.contains('app-card'));
-      const idx = siblings.indexOf(card);
-
+    cardMeta.forEach(({ card, idx, isMini, orderIdx }) => {
       let next;
-      if (card.classList.contains('app-card-mini')) {
+      if (isMini) {
         // Hero floating cards — fire in a fixed visual order: TL → TR → BL → BR
         // (regardless of DOM order). First flips fast (25 px), then 90 px gaps.
-        const ORDER = ['float-tl', 'float-tr', 'float-bl', 'float-br'];
-        let orderIdx = 0;
-        for (let i = 0; i < ORDER.length; i++) {
-          if (card.classList.contains(ORDER[i])) { orderIdx = i; break; }
-        }
         const triggerPx = 25 + orderIdx * 90;  // 25, 115, 205, 295
         next = window.scrollY >= triggerPx ? 'polished' : 'polishing';
       } else {
@@ -160,35 +220,162 @@
     });
   };
 
-  window.addEventListener('scroll', updateCardStates, { passive: true });
-  window.addEventListener('resize', updateCardStates);
-  requestAnimationFrame(updateCardStates);
-
   // ── Quiz section: scroll-driven mouse + answer + card flip ──
   const quizStage = document.querySelector('.quiz-stage');
+  let updateQuiz = null;
   if (quizStage) {
     const quizSec = quizStage.closest('.quiz-sec');
-    const updateQuiz = () => {
+    let answeredAtScrollY = null;
+    let answerGateArmed = false;
+    let answerGateTimer = null;
+    let flippedAtScrollY = null;
+    let flipGateArmed = false;
+    let flipGateTimer = null;
+    let q4HoverAtScrollY = null;
+    let q4AnswerGateArmed = false;
+    let q4AnswerGateTimer = null;
+    updateQuiz = () => {
       const r = quizSec.getBoundingClientRect();
       const vh = window.innerHeight;
       // Trigger off the stage's top entering the viewport from the bottom.
       const stageTop = quizStage.getBoundingClientRect().top;
-      // Map scroll position to one of 4 stages:
-      //   0 idle  → 1 cursor arrives → 2 click/highlight → 3 card flicks away
+      // Map scroll position to staged story beats:
+      //   0 idle → 1 cursor arrives → 2 answer Q2 → 3 deal Q4
+      //   → 4 hover Q4 answer → 5 answer Q4
       let stage = 0;
       if (stageTop < vh * 0.90) stage = 1;
-      if (stageTop < vh * 0.55) stage = 2;
-      if (stageTop < vh * 0.20) stage = 3;
-      // Past the section: settle on stage 3 (Q2 visible)
-      if (r.bottom < 0) stage = 3;
+      const answerAt = vh * 0.55;
+      if (stageTop < answerAt) stage = 2;
+
+      if (stage < 2) {
+        answeredAtScrollY = null;
+        answerGateArmed = false;
+        flippedAtScrollY = null;
+        flipGateArmed = false;
+        q4HoverAtScrollY = null;
+        q4AnswerGateArmed = false;
+        if (answerGateTimer) {
+          clearTimeout(answerGateTimer);
+          answerGateTimer = null;
+        }
+        if (flipGateTimer) {
+          clearTimeout(flipGateTimer);
+          flipGateTimer = null;
+        }
+        if (q4AnswerGateTimer) {
+          clearTimeout(q4AnswerGateTimer);
+          q4AnswerGateTimer = null;
+        }
+      } else if (answeredAtScrollY == null) {
+        answeredAtScrollY = window.scrollY;
+        answerGateArmed = false;
+        if (answerGateTimer) clearTimeout(answerGateTimer);
+        answerGateTimer = setTimeout(() => {
+          answeredAtScrollY = window.scrollY;
+          answerGateArmed = true;
+          scheduleScrollWork();
+        }, 90);
+      }
+
+      if (
+        stage >= 2 &&
+        (
+          (answerGateArmed &&
+            answeredAtScrollY != null &&
+            window.scrollY >= answeredAtScrollY + 100) ||
+          stageTop < vh * 0.20
+        )
+      ) {
+        stage = 3;
+      }
+
+      if (stage < 3) {
+        flippedAtScrollY = null;
+        flipGateArmed = false;
+        if (flipGateTimer) {
+          clearTimeout(flipGateTimer);
+          flipGateTimer = null;
+        }
+      } else if (flippedAtScrollY == null) {
+        flippedAtScrollY = window.scrollY;
+        flipGateArmed = false;
+        if (flipGateTimer) clearTimeout(flipGateTimer);
+        flipGateTimer = setTimeout(() => {
+          flippedAtScrollY = window.scrollY;
+          flipGateArmed = true;
+          scheduleScrollWork();
+        }, 420);
+      }
+
+      if (
+        stage >= 3 &&
+        (
+          (flipGateArmed &&
+            flippedAtScrollY != null &&
+            window.scrollY >= flippedAtScrollY + 56) ||
+          stageTop < vh * 0.08
+        )
+      ) {
+        stage = 4;
+      }
+
+      if (stage < 4) {
+        q4HoverAtScrollY = null;
+        q4AnswerGateArmed = false;
+        if (q4AnswerGateTimer) {
+          clearTimeout(q4AnswerGateTimer);
+          q4AnswerGateTimer = null;
+        }
+      } else if (q4HoverAtScrollY == null) {
+        q4HoverAtScrollY = window.scrollY;
+        q4AnswerGateArmed = false;
+        if (q4AnswerGateTimer) clearTimeout(q4AnswerGateTimer);
+        q4AnswerGateTimer = setTimeout(() => {
+          q4HoverAtScrollY = window.scrollY;
+          q4AnswerGateArmed = true;
+          scheduleScrollWork();
+        }, 820);
+      }
+
+      if (
+        stage >= 4 &&
+        q4AnswerGateArmed &&
+        (
+          q4HoverAtScrollY == null ||
+          window.scrollY >= q4HoverAtScrollY + 28 ||
+          stageTop < vh * 0.08
+        )
+      ) {
+        stage = 5;
+      }
+      // Past the section: settle on the final answered Q4 state.
+      if (r.bottom < 0) stage = 5;
       if (quizStage.dataset.stage !== String(stage)) {
         quizStage.dataset.stage = String(stage);
       }
     };
-    window.addEventListener('scroll', updateQuiz, { passive: true });
-    window.addEventListener('resize', updateQuiz);
-    requestAnimationFrame(updateQuiz);
   }
+
+  let scrollWorkQueued = false;
+  const runScrollWork = () => {
+    scrollWorkQueued = false;
+    onScroll();
+    updateCardStates();
+    if (updateQuiz) updateQuiz();
+  };
+  const scheduleScrollWork = () => {
+    if (scrollWorkQueued) return;
+    scrollWorkQueued = true;
+    requestAnimationFrame(runScrollWork);
+  };
+  window.addEventListener('scroll', scheduleScrollWork, { passive: true });
+  window.addEventListener('resize', () => {
+    updateHeroStageScale();
+    scheduleScrollWork();
+  });
+  requestAnimationFrame(runScrollWork);
+  setTimeout(scheduleScrollWork, 160);
+  setTimeout(scheduleScrollWork, 420);
 
   // ── Build the sidebar heatmap (8 weeks × 7 days, col-major) ──
   // Same seeded-random method as panel-home.jsx's genDailyActivity().
