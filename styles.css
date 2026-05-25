@@ -252,8 +252,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   transition: color var(--t-flick) var(--e-out), background var(--t-flick) var(--e-out);
 }
 .btn-ghost:hover { color: var(--ink); background: var(--bg-2); }
-.btn-ghost .arr { transition: transform var(--t-flick) var(--e-out); }
-.btn-ghost:hover .arr { transform: translateY(3px); }
 
 /* ─────────────── APP MOCKUP ─────────────── */
 /* ── Hero stage: wraps the app mockup + 4 floating mini cards ── */
